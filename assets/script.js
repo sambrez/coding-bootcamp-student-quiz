@@ -1,4 +1,4 @@
-// variable that establishes the quizzes set of questions
+// variable that establishes the quiz's set of questions
 const questions = [
     {
         question: "Where in the HTML file should the JavaScript file link be located?",

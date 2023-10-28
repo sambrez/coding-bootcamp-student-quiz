@@ -5,6 +5,15 @@ body {
     color: #0b0000;
 }
 
+section {
+    font-size: 20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #fff;
+    color: #0b0000;
+    margin: 10px 30px 10px 30px;
+    padding: 10px;
+}
+
 div {
     font-size: 20px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -62,4 +71,8 @@ button {
     text-decoration: none;
     cursor: pointer;
     text-align: center; 
+}
+
+#enter-initials {
+    display: none;
 }

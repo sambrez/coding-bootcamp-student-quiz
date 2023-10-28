@@ -2,26 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BootCamp Coding Quiz</title>
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BootCamp Coding Quiz</title>
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
   <section>
     <div class="score" id="high-scores"> View high scores</div>
-      <a></a>
+    <a></a>
     <div class="time" id="timer">Time: </div>
   </section>
-  <main>
-    <h1>Coding Quiz Challenge</h1>
-    <p>Try to answer the following code-related questions within the time limit.</p>
-    <p>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-    <button type="button">Start Quiz</button>
-  </main>  
 
-  <script src = "assets/script.js"></script>
+  <div>
+    <main>
+      <h1>Coding Quiz Challenge</h1>
+      <div id="home-screen">
+        <p>Try to answer the following code-related questions within the time limit.</p>
+        <p>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+        <button type="button">Start Quiz</button>
+      </div>
+      <div id="multiple-choice"></div>
+      <div id="your-score"></div>
+      <div id="enter-initials">
+        <h2>Enter your initials below.</h2>
+        <form>
+          <input type="text" id="initials" name="user-initials">
+          <button>Submit</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/script.js"></script>
 </body>
+
 </html>
