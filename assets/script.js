@@ -75,6 +75,22 @@ function startTimer() {
     const ticker = setInterval(function () {
         countDown.textContent = timer;
         timer--;
+
+        if (timer <= 0) {
+            clearInterval(ticker);
+            countDown.textContent = "";
+            multipleChoiceEl.setAttribute("style", "display: none;");
+            right.setAttribute("style", "display: none;");
+            wrong.setAttribute("style", "display: none;");
+            start = 0;
+            finalScore();
+        }
+        else if (start === 10) {
+            clearInterval(ticker);
+            countDown.textContent = "";
+            start = 0;
+            finalScore();
+        }
     }, 1000);
 }
 
@@ -93,29 +109,107 @@ function displayMultipleChoice() {
   let item4 = choice4.textContent = questions[start].multipleChoice[3];
 }
 
-// event listener for when a multiple choice button is clicked 
-multipleChoiceEl.addEventListener("click",function(event) {
+let right = document.getElementById('right');
+let wrong = document.getElementById('wrong');
+let totalPoints = 0; 
+
+// series of event listeners for when a multiple choice button is clicked 
+choice1.addEventListener("click",function(event) {
+    // conditional statement that evaluates the answer and returns a corresponing prompt
     if (event.target.textContent === questions[start].answer) {
         console.log("right");
-    } else {
-        console.log("wrong");
+        right.setAttribute("style", "display: inline;");
+        wrong.setAttribute("style", "display: none;");
+        totalPoints = totalPoints + 5;
     }
+     else if (event.target.textContent !== questions[start].answer) {
+        console.log("wrong");
+        wrong.setAttribute("style", "display: inline;");
+        right.setAttribute("style", "display: none;");
+        // reduces remaining time by 10 seconds
+        timer -= 10;
+        totalPoints = totalPoints - 1;
+    }
+    // moves quiz to the next question
     start++;
     displayMultipleChoice();
     questionDisplay.textContent = questions[start].question;
 } );
 
-const right = document.getElementById('right');
-const wrong = document.getElementById('wrong');
+choice2.addEventListener("click",function(event) {
+    // conditional statement that evaluates the answer and returns a corresponing prompt
+    if (event.target.textContent === questions[start].answer) {
+        console.log("right");
+        right.setAttribute("style", "display: inline;");
+        wrong.setAttribute("style", "display: none;");
+        totalPoints = totalPoints + 5;
+    }
+     else if (event.target.textContent !== questions[start].answer) {
+        console.log("wrong");
+        wrong.setAttribute("style", "display: inline;");
+        right.setAttribute("style", "display: none;");
+        // reduces remaining time by 10 seconds
+        timer -= 10;
+        totalPoints = totalPoints - 1;
+    }
+    // moves quiz to the next question
+    start++;
+    displayMultipleChoice();
+    questionDisplay.textContent = questions[start].question;
+} );
 
-multipleChoiceEl.addEventListener("click", function(event) {
-    
-})
+choice3.addEventListener("click",function(event) {
+    // conditional statement that evaluates the answer and returns a corresponing prompt
+    if (event.target.textContent === questions[start].answer) {
+        console.log("right");
+        right.setAttribute("style", "display: inline;");
+        wrong.setAttribute("style", "display: none;");
+        totalPoints = totalPoints + 5;
+    }
+     else if (event.target.textContent !== questions[start].answer) {
+        console.log("wrong");
+        wrong.setAttribute("style", "display: inline;");
+        right.setAttribute("style", "display: none;");
+        // reduces remaining time by 10 seconds
+        timer -= 10;
+        totalPoints = totalPoints - 1;
+    }
+    // moves quiz to the next question
+    start++;
+    displayMultipleChoice();
+    questionDisplay.textContent = questions[start].question;
+} );
 
-// function rightAnswer() {
+choice4.addEventListener("click",function(event) {
+    // conditional statement that evaluates the answer and returns a corresponing prompt
+    if (event.target.textContent === questions[start].answer) {
+        console.log("right");
+        right.setAttribute("style", "display: inline;");
+        wrong.setAttribute("style", "display: none;");
+        totalPoints = totalPoints + 5;
+    }
+     else if (event.target.textContent !== questions[start].answer) {
+        console.log("wrong");
+        wrong.setAttribute("style", "display: inline;");
+        right.setAttribute("style", "display: none;");
+        // reduces remaining time by 10 seconds
+        timer -= 10;
+        totalPoints = totalPoints - 1;
+    }
+    // moves quiz to the next question
+    start++;
+    displayMultipleChoice();
+    questionDisplay.textContent = questions[start].question;
+} );
 
-// }
+let form = document.getElementById('enter-initials');
 
-// function wrongAnswer() {
-
-// }
+// function that is called when timer is up or no more questions
+// displays score and form for user initials
+function finalScore() {
+    questionDisplay.textContent = "Final Score: " + totalPoints;
+    multipleChoiceEl.setAttribute("style", "display: none;");
+    right.setAttribute("style", "display: none;");
+    wrong.setAttribute("style", "display: none;");
+    form.setAttribute("style", "display: block;");
+}
