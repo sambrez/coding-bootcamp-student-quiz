@@ -13,18 +13,23 @@
   <section>
     <div class="score" id="high-scores"> View high scores</div>
     <a></a>
-    <div class="time" id="timer">Time: </div>
+    <div class="time" id="timer">Time: <span id="count-down"></span> </div>
   </section>
 
   <div>
     <main>
-      <h1>Coding Quiz Challenge</h1>
+      <h1 id="platform">Coding Quiz Challenge</h1>
       <div id="home-screen">
         <p>Try to answer the following code-related questions within the time limit.</p>
         <p>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <button type="button">Start Quiz</button>
       </div>
-      <div id="multiple-choice"></div>
+      <div class="buttons" id="multiple-choice">
+        <button id="one"></button>
+        <button id="two"></button>
+        <button id="three"></button>
+        <button id="four"></button>
+      </div>
       <div id="your-score"></div>
       <div id="enter-initials">
         <h2>Enter your initials below.</h2>

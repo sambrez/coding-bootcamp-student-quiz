@@ -76,3 +76,9 @@ button {
 #enter-initials {
     display: none;
 }
+
+.buttons button {
+    background-color: rgb(200, 198, 198);
+    color: #0c0000;
+    display: none;
+}
