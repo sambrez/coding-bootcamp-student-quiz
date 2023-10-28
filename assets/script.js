@@ -18,7 +18,7 @@ const questions = [
     {
         question: "A JavaScript event handler is used ____.",
         multipleChoice: ["A: 'to handle and verify user input, user actions, and browser actions'", "B: 'to assign a value to a variable'", "C: 'for storing and manipulating text'", "D: 'to perform mathematical tasks on numbers'"],
-        answer: "A: 'used to handle and verify user input, user actions, and browser actions'"
+        answer: "A: 'to handle and verify user input, user actions, and browser actions'"
     },
     {
         question: "'An array is a special variable, which can _______.'",
@@ -58,14 +58,10 @@ const countDown = document.getElementById('count-down');
 const multipleChoiceEl = document.querySelector('#multiple-choice');
 let timer = 20 * quizLength;
 
-let choice1 = document.getElementById('one');
-let choice2 = document.getElementById('two');
-let choice3 = document.getElementById('three');
-let choice4 = document.getElementById('four');
-
 // event listner to start the quiz
 click.addEventListener("click", startQuiz);
 
+// function that changes the screen display when called, switching from home screen to questions
 function startQuiz() {
     homeScreen.setAttribute("style", "display: none;");
     questionDisplay.textContent = questions[start].question;
@@ -74,6 +70,7 @@ function startQuiz() {
     displayMultipleChoice();
 }
 
+// function that calls the timer count down
 function startTimer() {
     const ticker = setInterval(function () {
         countDown.textContent = timer;
@@ -81,8 +78,14 @@ function startTimer() {
     }, 1000);
 }
 
+// variables that establish the multiple choice buttons
+let choice1 = document.getElementById('one');
+let choice2 = document.getElementById('two');
+let choice3 = document.getElementById('three');
+let choice4 = document.getElementById('four');
 let start = 0;
 
+// function that displays the list of possible answers
 function displayMultipleChoice() {
   let item1 = choice1.textContent = questions[start].multipleChoice[0];
   let item2 = choice2.textContent = questions[start].multipleChoice[1];
@@ -90,8 +93,29 @@ function displayMultipleChoice() {
   let item4 = choice4.textContent = questions[start].multipleChoice[3];
 }
 
-multipleChoiceEl.addEventListener("click",function() {
+// event listener for when a multiple choice button is clicked 
+multipleChoiceEl.addEventListener("click",function(event) {
+    if (event.target.textContent === questions[start].answer) {
+        console.log("right");
+    } else {
+        console.log("wrong");
+    }
     start++;
     displayMultipleChoice();
     questionDisplay.textContent = questions[start].question;
 } );
+
+const right = document.getElementById('right');
+const wrong = document.getElementById('wrong');
+
+multipleChoiceEl.addEventListener("click", function(event) {
+    
+})
+
+// function rightAnswer() {
+
+// }
+
+// function wrongAnswer() {
+
+// }
