@@ -55,25 +55,35 @@ const homeScreen = document.getElementById('home-screen');
 const quizLength = questions.length;
 const questionDisplay = document.getElementById('platform');
 const countDown = document.getElementById('count-down');
-const multipleChoice = document.querySelector('.buttons');
+const multipleChoiceEl = document.querySelector('#multiple-choice');
 let timer = 20 * quizLength;
-// const start = 0;
+
+let choice1 = document.getElementById('one');
+let choice2 = document.getElementById('two');
+let choice3 = document.getElementById('three');
+let choice4 = document.getElementById('four');
 
 function startTimer() {
-    const ticker = setInterval(function() {
+    const ticker = setInterval(function () {
         countDown.textContent = timer;
-        timer--; 
+        timer--;
     }, 1000);
 }
 
 function startQuiz() {
     homeScreen.setAttribute("style", "display: none;");
     questionDisplay.textContent = questions[0].question;
-    multipleChoice.setAttribute("style", "display: block;");
+    multipleChoiceEl.setAttribute("style", "display: block;");
     startTimer();
+    displayMultipleChoice();
 }
 
 // event listner to start the quiz
-document.addEventListener("click", startQuiz);
+click.addEventListener("click", startQuiz);
 
-
+function displayMultipleChoice() {
+  let item1 = choice1.textContent = questions[0].multipleChoice[0];
+  let item2 = choice2.textContent = questions[0].multipleChoice[1];
+  let item3 = choice3.textContent = questions[0].multipleChoice[2];
+  let item4 = choice4.textContent = questions[0].multipleChoice[3];
+}
