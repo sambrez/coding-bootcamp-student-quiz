@@ -245,10 +245,47 @@ submit.addEventListener("click", inputInitials);
 // event listener for when user clicks "return to Start" button
 returnHome.addEventListener("click", backToStart);
 
+// funtion that restarts the application
 function backToStart() {
     questionDisplay.textContent = "Coding Quiz Challenge";
     homeScreen.setAttribute("style", "display: block;");
     form.setAttribute("style", "display: none;");
     totalPoints = 0;
     submit.setAttribute("style", "display: inline;")
+}
+
+const view = document.getElementById('view');
+const back = document.getElementById('back');
+
+view.addEventListener("click", function() {
+    viewScores();
+    renderPreviousScores();
+});
+
+back.addEventListener("click", function() {
+    backToStart();
+    questionDisplay.setAttribute("style", "display: block;");
+    back.setAttribute("style", "display: none;");
+    view.setAttribute("style", "display: inline;");
+});
+
+function viewScores() {
+    questionDisplay.setAttribute("style", "display: none;");
+    homeScreen.setAttribute("style", "display: none;");
+}
+
+view.addEventListener("click", function() {
+    viewScores();
+    renderPreviousScores();
+});
+
+function viewScores() {
+    questionDisplay.setAttribute("style", "display: none;");
+    homeScreen.setAttribute("style", "display: none;");
+    back.setAttribute("style", "display: inline;");
+    view.setAttribute("style", "display: none;");
+}
+
+function renderPreviousScores() {
+
 }
