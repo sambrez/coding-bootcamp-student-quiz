@@ -213,3 +213,42 @@ function finalScore() {
     wrong.setAttribute("style", "display: none;");
     form.setAttribute("style", "display: block;");
 }
+
+let highScores = [];
+const submission = document.getElementById('platform2');
+const formBlock = document.getElementById('form-block');
+
+// function that stores initials and score to local storage
+function inputInitials(event) {
+    console.log('final test');
+    event.preventDefault();
+    let input = document.getElementById('initials');
+    let scores = {
+        myInitials: input.value,
+        score: totalPoints
+    };
+    highScores.push(scores);
+    let string = JSON.stringify(highScores);
+    localStorage.setItem("High Scores", string);
+    submission.textContent = "Your score has been successfully submitted!";
+    submission.setAttribute("style", "color: #c81c1c;")
+    submit.setAttribute("style", "display: none;");
+    formBlock.reset();
+}
+
+const submit = document.getElementById('click2');
+const returnHome = document.getElementById('return-home');
+
+// event listener for when a user clicks the "submit" initials button
+submit.addEventListener("click", inputInitials);
+
+// event listener for when user clicks "return to Start" button
+returnHome.addEventListener("click", backToStart);
+
+function backToStart() {
+    questionDisplay.textContent = "Coding Quiz Challenge";
+    homeScreen.setAttribute("style", "display: block;");
+    form.setAttribute("style", "display: none;");
+    totalPoints = 0;
+    submit.setAttribute("style", "display: inline;")
+}
