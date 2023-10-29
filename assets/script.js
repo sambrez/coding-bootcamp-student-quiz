@@ -117,13 +117,13 @@ let totalPoints = 0;
 choice1.addEventListener("click",function(event) {
     // conditional statement that evaluates the answer and returns a corresponing prompt
     if (event.target.textContent === questions[start].answer) {
-        console.log("right");
+        // console.log("right");
         right.setAttribute("style", "display: inline;");
         wrong.setAttribute("style", "display: none;");
         totalPoints = totalPoints + 5;
     }
      else if (event.target.textContent !== questions[start].answer) {
-        console.log("wrong");
+        // console.log("wrong");
         wrong.setAttribute("style", "display: inline;");
         right.setAttribute("style", "display: none;");
         // reduces remaining time by 10 seconds
@@ -139,13 +139,13 @@ choice1.addEventListener("click",function(event) {
 choice2.addEventListener("click",function(event) {
     // conditional statement that evaluates the answer and returns a corresponing prompt
     if (event.target.textContent === questions[start].answer) {
-        console.log("right");
+        // console.log("right");
         right.setAttribute("style", "display: inline;");
         wrong.setAttribute("style", "display: none;");
         totalPoints = totalPoints + 5;
     }
      else if (event.target.textContent !== questions[start].answer) {
-        console.log("wrong");
+        // console.log("wrong");
         wrong.setAttribute("style", "display: inline;");
         right.setAttribute("style", "display: none;");
         // reduces remaining time by 10 seconds
@@ -161,13 +161,13 @@ choice2.addEventListener("click",function(event) {
 choice3.addEventListener("click",function(event) {
     // conditional statement that evaluates the answer and returns a corresponing prompt
     if (event.target.textContent === questions[start].answer) {
-        console.log("right");
+        // console.log("right");
         right.setAttribute("style", "display: inline;");
         wrong.setAttribute("style", "display: none;");
         totalPoints = totalPoints + 5;
     }
      else if (event.target.textContent !== questions[start].answer) {
-        console.log("wrong");
+        // console.log("wrong");
         wrong.setAttribute("style", "display: inline;");
         right.setAttribute("style", "display: none;");
         // reduces remaining time by 10 seconds
@@ -183,13 +183,13 @@ choice3.addEventListener("click",function(event) {
 choice4.addEventListener("click",function(event) {
     // conditional statement that evaluates the answer and returns a corresponing prompt
     if (event.target.textContent === questions[start].answer) {
-        console.log("right");
+        // console.log("right");
         right.setAttribute("style", "display: inline;");
         wrong.setAttribute("style", "display: none;");
         totalPoints = totalPoints + 5;
     }
      else if (event.target.textContent !== questions[start].answer) {
-        console.log("wrong");
+        // console.log("wrong");
         wrong.setAttribute("style", "display: inline;");
         right.setAttribute("style", "display: none;");
         // reduces remaining time by 10 seconds
@@ -220,7 +220,7 @@ const formBlock = document.getElementById('form-block');
 
 // function that stores initials and score to local storage
 function inputInitials(event) {
-    console.log('final test');
+    // console.log('final test');
     event.preventDefault();
     let input = document.getElementById('initials');
     let scores = {
@@ -262,6 +262,7 @@ view.addEventListener("click", function() {
     viewScores();
     renderPreviousScores();
 });
+
 //  event listener to return to main quiz page
 back.addEventListener("click", function() {
     backToStart();
@@ -282,7 +283,18 @@ function viewScores() {
     view.setAttribute("style", "display: none;");
 }
 
+let listDisplay = document.getElementById('list');
+
 // function that displays data stored locally of score results
 function renderPreviousScores() {
+    let storedInfo = JSON.parse(localStorage.getItem("High Scores"));
+    console.log(storedInfo);
+    let li = document.createElement("li");
+    li.textContent = storedInfo;
+    listDisplay.appendChild(li);
 
+    if (storedInfo === null) {
+        return;
+    }
 }
+
