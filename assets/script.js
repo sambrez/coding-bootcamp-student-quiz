@@ -272,16 +272,10 @@ back.addEventListener("click", function() {
 function viewScores() {
     questionDisplay.setAttribute("style", "display: none;");
     homeScreen.setAttribute("style", "display: none;");
-}
-
-view.addEventListener("click", function() {
-    viewScores();
-    renderPreviousScores();
-});
-
-function viewScores() {
-    questionDisplay.setAttribute("style", "display: none;");
-    homeScreen.setAttribute("style", "display: none;");
+    multipleChoiceEl.setAttribute("style", "display: none;");
+    right.setAttribute("style", "display: none;");
+    wrong.setAttribute("style", "display: none;");
+    form.setAttribute("style", "display: none;");
     back.setAttribute("style", "display: inline;");
     view.setAttribute("style", "display: none;");
 }
