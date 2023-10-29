@@ -257,11 +257,12 @@ function backToStart() {
 const view = document.getElementById('view');
 const back = document.getElementById('back');
 
+// event listener to click to view scores
 view.addEventListener("click", function() {
     viewScores();
     renderPreviousScores();
 });
-
+//  event listener to return to main quiz page
 back.addEventListener("click", function() {
     backToStart();
     questionDisplay.setAttribute("style", "display: block;");
@@ -269,6 +270,7 @@ back.addEventListener("click", function() {
     view.setAttribute("style", "display: inline;");
 });
 
+// function called when user clicks to view scores
 function viewScores() {
     questionDisplay.setAttribute("style", "display: none;");
     homeScreen.setAttribute("style", "display: none;");
@@ -280,6 +282,7 @@ function viewScores() {
     view.setAttribute("style", "display: none;");
 }
 
+// function that displays data stored locally of score results
 function renderPreviousScores() {
 
 }
