@@ -87,9 +87,12 @@ button {
 }
 
 #list {
-    display: none;
     background-color: #fff;
     color: #111111;
+}
+
+.display {
+    display: block;
 }
 
 #right {

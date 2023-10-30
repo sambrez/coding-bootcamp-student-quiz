@@ -290,6 +290,7 @@ function renderPreviousScores() {
     let storedInfo = JSON.parse(localStorage.getItem("High Scores"));
     console.log(storedInfo);
     let li = document.createElement("li");
+    li.setAttribute("class", "display");
     li.textContent = storedInfo;
     listDisplay.appendChild(li);
 
