@@ -72,7 +72,7 @@ function startQuiz() {
 
 // function that calls the timer count down
 function startTimer() {
-    const ticker = setInterval(function () {
+    let ticker = setInterval(function () {
         countDown.textContent = timer;
         timer--;
 
@@ -90,7 +90,7 @@ function startTimer() {
             countDown.textContent = "";
             start = 0;
             finalScore();
-        }
+        } 
     }, 1000);
 }
 
@@ -209,6 +209,7 @@ let form = document.getElementById('enter-initials');
 function finalScore() {
     questionDisplay.textContent = "Final Score: " + totalPoints;
     multipleChoiceEl.setAttribute("style", "display: none;");
+    homeScreen.setAttribute("style", "display: none;");
     right.setAttribute("style", "display: none;");
     wrong.setAttribute("style", "display: none;");
     form.setAttribute("style", "display: block;");
@@ -229,6 +230,7 @@ function inputInitials(event) {
     };
     highScores.push(scores);
     let string = JSON.stringify(highScores);
+    console.log(string, typeof string);
     localStorage.setItem("High Scores", string);
     submission.textContent = "Your score has been successfully submitted!";
     submission.setAttribute("style", "color: #c81c1c;")
@@ -269,10 +271,13 @@ back.addEventListener("click", function() {
     questionDisplay.setAttribute("style", "display: block;");
     back.setAttribute("style", "display: none;");
     view.setAttribute("style", "display: inline;");
+    listDisplay.setAttribute("style", "display: none;");
+
 });
 
 // function called when user clicks to view scores
 function viewScores() {
+    listDisplay.setAttribute("style", "display: inline;");
     questionDisplay.setAttribute("style", "display: none;");
     homeScreen.setAttribute("style", "display: none;");
     multipleChoiceEl.setAttribute("style", "display: none;");
@@ -289,10 +294,12 @@ let listDisplay = document.getElementById('list');
 function renderPreviousScores() {
     let storedInfo = JSON.parse(localStorage.getItem("High Scores"));
     console.log(storedInfo);
-    let li = document.createElement("li");
-    li.setAttribute("class", "display");
-    li.textContent = storedInfo;
-    listDisplay.appendChild(li);
+    for (let i = 0; i < storedInfo.length; i++) {
+        let li = document.createElement("li");
+        li.setAttribute("class", "display");
+        li.textContent = "Initials: " + storedInfo[i].myInitials + "    Score: " + storedInfo[i].score;
+        listDisplay.appendChild(li);
+    }
 
     if (storedInfo === null) {
         return;
